@@ -28,4 +28,39 @@ public class UserService implements IUserService {
 		return this.userDao.selectName(userId);
 	}
 
+	@Override
+	public int doInsert(User user) {
+		// TODO Auto-generated method stub
+		this.userDao.insert(user);
+		try {
+			Thread.sleep(1000 * 30);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		user.setUserName("张三");
+		this.userDao.insert(user);
+		user.setAge(50);
+//		throw new RuntimeException();
+		return this.userDao.insert(user);
+	}
+
+	@Override
+	public int doUpdate(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateByPrimaryKey(user);
+	}
+
+	@Override
+	public int doUpdateSelective(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateByPrimaryKeySelective(user);
+	}
+
+	@Override
+	public int doDelete(User user) {
+		// TODO Auto-generated method stub
+		return this.userDao.deleteByPrimaryKey(user.getId());
+	}
+	
 }

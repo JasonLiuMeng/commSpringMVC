@@ -1593,3 +1593,126 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'name'
 [INFO] [2017-03-29 16:10:03][com.ssm.testmybatis.TestMyBatis]{"age":24,"id":1,"password":"123456","userName":"测试"}
 [INFO] [2017-03-29 16:10:03][com.ssm.testmybatis.TestMyBatis]*******************[测试]
 [INFO] [2017-03-29 16:10:03][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@47dccc2: startup date [Wed Mar 29 16:10:02 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:19:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:19:31][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@44822268: startup date [Thu Mar 30 16:19:31 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:19:31][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:19:31][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:19:31][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:19:32][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@44822268: startup date [Thu Mar 30 16:19:31 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:22:20][org.springframework.test.context.ContextLoaderUtils]Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ssm.testmybatis.TestMyBatis]
+[ERROR] [2017-03-30 16:22:20][org.springframework.test.context.TestContextManager]Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20224c66] to prepare test instance [com.ssm.testmybatis.TestMyBatis@2bc5cd05]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: java.lang.IllegalArgumentException: Cannot load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration or @ContextHierarchy.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:57)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 25 more
+[INFO] [2017-03-30 16:23:02][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:23:02][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 16:23:02 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:23:02][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:23:02][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:23:02][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:23:02][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 16:23:02 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:24:09][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:24:09][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 16:24:09 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:24:09][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:24:09][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:24:09][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:24:10][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 16:24:09 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:32:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:32:59][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 16:32:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:32:59][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:33:00][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:33:00][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:33:00][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 16:32:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:34:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:34:26][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@690d1090: startup date [Thu Mar 30 16:34:26 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:34:26][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:34:27][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:34:27][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:34:27][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@690d1090: startup date [Thu Mar 30 16:34:26 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:40:42][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 16:40:42][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 16:40:42 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 16:40:42][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 16:40:42][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 16:40:43][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 16:40:43][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 16:40:42 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:10:22][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:10:22][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@79845505: startup date [Thu Mar 30 17:10:22 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:10:22][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:10:23][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:10:23][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:10:23][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@79845505: startup date [Thu Mar 30 17:10:22 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:10:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:10:54][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 17:10:54 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:10:54][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:10:54][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:10:54][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:10:55][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 17:10:54 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:11:11][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:11:12][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 17:11:12 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:11:12][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:11:12][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:11:12][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:11:13][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@58ba93d1: startup date [Thu Mar 30 17:11:12 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:13:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:13:59][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 17:13:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:14:00][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:14:00][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:14:00][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:14:01][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 17:13:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:17:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:17:28][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 17:17:28 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:17:28][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:17:28][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:17:28][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:17:29][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@413eabd9: startup date [Thu Mar 30 17:17:28 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:23:29][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:23:30][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@8492b68: startup date [Thu Mar 30 17:23:30 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:23:30][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:23:30][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:23:30][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:31:42][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 1, acquireRetryAttempts -> 3, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> true, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1br7mde9n8gxcex4zh3ib|7df5ddbe, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1br7mde9n8gxcex4zh3ib|7df5ddbe, idleConnectionTestPeriod -> 60, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/test_db?characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2017-03-30 17:31:44][com.ssm.testmybatis.TestMyBatis]{"age":24,"id":1,"password":"123456","userName":"测试"}
+[INFO] [2017-03-30 17:31:47][com.ssm.testmybatis.TestMyBatis]*******************[测试]
+[INFO] [2017-03-30 17:31:47][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@8492b68: startup date [Thu Mar 30 17:23:30 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:31:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:31:59][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@19f70605: startup date [Thu Mar 30 17:31:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:32:00][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:32:00][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:32:00][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+[INFO] [2017-03-30 17:32:01][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 1, acquireRetryAttempts -> 3, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> true, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1br7mde9n8h89r6vtn9j9|34fc962b, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1br7mde9n8h89r6vtn9j9|34fc962b, idleConnectionTestPeriod -> 60, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/test_db?characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2017-03-30 17:32:01][com.ssm.testmybatis.TestMyBatis]{"age":24,"id":1,"password":"123456"}
+[INFO] [2017-03-30 17:32:01][com.ssm.testmybatis.TestMyBatis]*******************[测试]
+[INFO] [2017-03-30 17:32:01][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@19f70605: startup date [Thu Mar 30 17:31:59 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:34:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-03-30 17:34:54][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@522ef2d7: startup date [Thu Mar 30 17:34:54 CST 2017]; root of context hierarchy
+[INFO] [2017-03-30 17:34:54][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-03-30 17:34:55][com.mchange.v2.log.MLog]MLog clients using slf4j logging.
+[INFO] [2017-03-30 17:34:55][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]

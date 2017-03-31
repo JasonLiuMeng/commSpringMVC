@@ -3,12 +3,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans  
                         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
                         http://www.springframework.org/schema/context  
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd  
                         http://www.springframework.org/schema/mvc  
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                        http://www.springframework.org/schema/aop 
+                        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
                         
      <!-- 自动扫描 -->
     <context:component-scan base-package="com.ssm" />
@@ -75,5 +81,29 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+	
+	<!-- 
+		声明事务切点  execution( * com.ssm.service..*.*(..))
+		 1、execution(): 表达式主体。
+		 2、第一个*号：表示返回类型，*号表示所有的类型。
+		 3、包名：表示需要拦截的包名，后面的两个句点(..)表示当前包和当前包的所有子包，com.ssm.service包、子孙包下所有类的方法。
+		 4、第二个*号：表示类名，*号表示所有的类。
+		 5、*(..):最后这个星号表示方法名，*号表示所有的方法，后面括弧里面表示方法的参数，两个句点(..)表示任何参数
+	-->
+	<aop:config proxy-target-class="true">
+		<aop:advisor advice-ref="txAdvice"
+			pointcut="execution( * com.ssm.service.*.*(..))" />
+	</aop:config>
+
+	<!-- 通用事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="do*" propagation="REQUIRED" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 激活自动代理功能 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
 </beans>
