@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>     
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>   
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'test.jsp' starting page</title>
+    <title>Error</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -25,10 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	test page <br/>
-    ${user.userName}<br/>
-    <a href="test/showUser?userId=1&language=zh">中文</a> &nbsp;&nbsp;<a href="test/showUser?userId=1&language=en">English</a>
-    <br/><spring:message code="language.test.label" />${language_message}
-    ${lang}
+    	系统出现异常：${message}
   </body>
 </html>

@@ -3,17 +3,22 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
     xsi:schemaLocation="http://www.springframework.org/schema/beans  
                             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
                             http://www.springframework.org/schema/context  
                             http://www.springframework.org/schema/context/spring-context-4.0.xsd  
                             http://www.springframework.org/schema/mvc  
-                            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-                            
+                            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd         
+                            http://www.springframework.org/schema/aop 
+                        	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+                      
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器         -->
+    <context:component-scan base-package="com.ssm.controller" />           
     
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
-        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
                 <value>text/html;charset=UTF-8</value>
@@ -32,17 +37,17 @@
     </bean>
     
     <!-- 对静态资源的访问 -->
-    <!-- <mvc:resources mapping="/js/**" location="/js/" /> <mvc:resources mapping="/css/**" 
-        location="/css/" /> -->         
-        
-     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="com.ssm.controller" />
+    <mvc:resources mapping="/js/**" location="/js/" /> 
+    <mvc:resources mapping="/css/**" location="/css/" />         
                        
     <!-- 添加注解驱动 -->
     <mvc:annotation-driven enable-matrix-variables="true" />
-    <!-- 允许对静态资源文件的访问 -->    
     
-    <mvc:default-servlet-handler />   
+    <!-- 允许对静态资源文件的访问 -->    
+    <mvc:default-servlet-handler /> 
+    
+    <!-- 注册全局自定义异常处理器  只要实现了HandlerExceptionResolver接口, spring会自动将该处理器设置为全局异常处理器 -->  
+    <bean class="com.ssm.exception.CustomExceptionResolver"></bean>
     
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean
@@ -64,8 +69,47 @@
         <property name="maxInMemorySize" value="40960" />
     </bean>    
     
-    <!-- 国际化 -->
-    <bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource"
-		p:basename="messages" />        
+    <!-- 
+    	设置本地语言环境检测点。
+    	SessionLocaleResolver从session中检测某个属性的值，如果不存在则采用http头中的accept-language来确认， 还有CookieLocaleResolver和AcceptHeaderLocaleResolver
+     -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+      	<property name="defaultLocale" value="zh_CN"></property>
+     </bean>
+    
+    <!-- 
+    	jsp页面使用spring：message标签来获取国际化资源
+    	使用spring标签必须首先引入<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>  
+    -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	    <!-- 国际化信息所在文件的文件名 -->         
+	    <property name="basenames">  
+            <list>  
+                <value>language/messages</value>  
+            </list>  
+        </property>              
+	    <!-- 如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称  -->               
+	    <property name="useCodeAsDefaultMessage" value="true" /> 
+	    <!-- 默认编码方式 -->
+	    <property name="defaultEncoding" value="UTF-8"/>           
+	</bean>  
+	
+	<!-- 
+		语言配置拦截器，通过该拦截器拦截请求并解析设置页面的区域化信息，其中lang表示语言参数的key.
+		本配置中采用从session中获取,如果从session中找不到lang这个参数则使用http请求头中的accept-language来设置
+    -->
+	<mvc:interceptors>
+        <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<bean id="myTestInterceptor" class="com.ssm.interceptor.MyTestInterceptor" />
+    </mvc:interceptors> 
+    
+    
+    <!-- 扫描controller相关的切面类  -->
+    <context:component-scan base-package="com.ssm.aop.controller"/>
+    <!--  
+    	此处需要主要，如果自己手动引用切面依赖jar包：aspectj和aspectjweaver,则在启动的时候回出现错误，无法加载bean RequestMappingHandlerMapping java.lang.reflect.Type.getTypeName()Ljava/lang/String;的错误
+     	将aspectj和aspectjweaver换成 spring-aspects即可
+      -->  
+    <aop:aspectj-autoproxy proxy-target-class="true"/>    
+   
 </beans>

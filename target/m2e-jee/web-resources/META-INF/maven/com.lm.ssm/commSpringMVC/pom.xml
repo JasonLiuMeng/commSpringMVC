@@ -10,12 +10,20 @@
   
   <properties>
     <!-- spring版本号 -->
-    <spring.version>4.0.2.RELEASE</spring.version>
+    <spring.version>4.3.2.RELEASE</spring.version>
     <!-- mybatis版本号 -->
     <mybatis.version>3.2.6</mybatis.version>
+    <mybatis-spring.version>1.2.2</mybatis-spring.version>
     <!-- log4j日志文件管理包版本 -->
     <slf4j.version>1.7.7</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
+    <aspectj.version>1.8.10</aspectj.version>
+    <mysql.version>5.1.30</mysql.version>
+    <c3p0.version>0.9.5.2</c3p0.version> 
+	<jstl.version>1.2</jstl.version>
+    <servletapi.version>3.1.0</servletapi.version>
+    <jackson.version>2.1.0</jackson.version>
+    <cglib.version>3.1</cglib.version>
   </properties>
   
   <dependencies>
@@ -72,6 +80,11 @@
         <artifactId>spring-test</artifactId>
         <version>${spring.version}</version>
     </dependency>
+     <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
     <!-- mybatis核心包 -->
     <dependency>
         <groupId>org.mybatis</groupId>
@@ -82,13 +95,13 @@
     <dependency>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-spring</artifactId>
-        <version>1.2.2</version>
+        <version>${mybatis-spring.version}</version>
     </dependency>
     <!-- 导入Mysql数据库链接jar包 -->
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.30</version>
+        <version>${mysql.version}</version>
     </dependency>
     <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
    <!--  
@@ -102,25 +115,24 @@
     <dependency>
         <groupId>com.mchange</groupId>
         <artifactId>c3p0</artifactId>
-        <version>0.9.5.2</version>
+        <version>${c3p0.version}</version>
     </dependency>
     
      <!-- 导入servlet jar 包 -->
      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
-        <version>3.1.0</version>
-        <scope>provided</scope>
+        <version>${servletapi.version}</version>
     </dependency>
     <!-- JSTL标签类 -->
     <dependency>
         <groupId>jstl</groupId>
         <artifactId>jstl</artifactId>
-        <version>1.2</version>
+        <version>${jstl.version}</version>
     </dependency>
     <!-- 日志文件管理包 -->
     <!-- log start -->
-    <dependency>
+	<dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
@@ -148,6 +160,21 @@
         <artifactId>jackson-mapper-asl</artifactId>
         <version>1.9.13</version>
     </dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>  
     <!-- 上传组件包 -->
     <dependency>
         <groupId>commons-fileupload</groupId>
@@ -164,17 +191,11 @@
         <artifactId>commons-codec</artifactId>
         <version>1.9</version>
     </dependency>
-    <!-- aop相关的包 -->
-    <dependency>  
-        <groupId>org.aspectj</groupId>  
-        <artifactId>aspectjrt</artifactId>  
-        <version>1.8.10</version>  
-    </dependency>  
-    <dependency>  
-        <groupId>org.aspectj</groupId>  
-        <artifactId>aspectjweaver</artifactId>  
-        <version>1.8.10</version>  
-    </dependency>
+	<dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>${cglib.version}</version>
+     </dependency>
   </dependencies>
   <build>
     <finalName>commSpringMVC</finalName>
@@ -184,8 +205,8 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.5.1</version>
             <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
+                <source>1.7</source>
+                <target>1.7</target>
                 <encoding>UTF-8</encoding>
             </configuration>
         </plugin>

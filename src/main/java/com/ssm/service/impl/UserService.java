@@ -16,6 +16,10 @@ public class UserService implements IUserService {
 	@Resource
 	private UserMapper userDao;
 	
+	public UserService() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	@Override
 	public User getUserById(int userId) {
 		// TODO Auto-generated method stub
@@ -31,17 +35,17 @@ public class UserService implements IUserService {
 	@Override
 	public int doInsert(User user) {
 		// TODO Auto-generated method stub
-		this.userDao.insert(user);
-		try {
-			Thread.sleep(1000 * 30);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		user.setUserName("张三");
-		this.userDao.insert(user);
-		user.setAge(50);
-//		throw new RuntimeException();
+		
+		//此处为测试事务的代码，第一条插入执行后进入睡眠状态，此时数据库并没有真正插入数据，只有在方法执行完毕之后才会有插入数据库
+//		this.userDao.insert(user);
+//		try {
+//			Thread.sleep(30*1000); //此时并没有插入数据库
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		user.setUserName("new Name");
+		/**/
 		return this.userDao.insert(user);
 	}
 
